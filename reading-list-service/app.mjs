@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 // add a book - request body should contain a title, status and an author
 app.post("/reading-list/books", (req, res) => {
   const { title, author, status } = req.body;
+  console.log(">>>", req.body);
   const uuid = uuidv4();
   if (!(status === "read" || status === "to_read" || status === "reading")) {
     return res.status(400).json({
